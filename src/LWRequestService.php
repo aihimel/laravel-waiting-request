@@ -3,7 +3,6 @@
 namespace Aihimel\LaravelWaitingRequest;
 
 class LWRequestService {
-
 	public function addBlocker( string $classPath, int $resource_id ): bool
 	{
 		// add blocker code
@@ -21,5 +20,4 @@ class LWRequestService {
 		// check if the resource si blocked
 		return true;
 	}
-
 }
