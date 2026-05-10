@@ -1,0 +1,23 @@
+<?php
+
+namespace Aihimel\LaravelWaitingRequest\Tests;
+
+use Aihimel\LaravelWaitingRequest\LWRequestServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
+
+abstract class TestCase extends Orchestra
+{
+    protected function getPackageProviders($app)
+    {
+        return [
+            LWRequestServiceProvider::class,
+        ];
+    }
+
+    protected function getPackageAliases($app)
+    {
+        return [
+            'LWRequest' => 'Aihimel\LaravelWaitingRequest\Facades\LWRequest',
+        ];
+    }
+}
