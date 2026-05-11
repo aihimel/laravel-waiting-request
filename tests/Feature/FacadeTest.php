@@ -6,7 +6,6 @@ use Aihimel\LaravelWaitingRequest\Facades\LWRequest;
 use Aihimel\LaravelWaitingRequest\Tests\TestCase;
 
 class FacadeTest extends TestCase {
-
 	public function testAddBlocker(): void
 	{
 		$this->assertTrue( LWRequest::addBlocker( 'Fake\Class\Path', 2 ) );
