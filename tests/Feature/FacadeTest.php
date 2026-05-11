@@ -5,6 +5,9 @@ namespace Aihimel\LaravelWaitingRequest\Tests\Feature;
 use Aihimel\LaravelWaitingRequest\Facades\LWRequest;
 use Aihimel\LaravelWaitingRequest\Tests\TestCase;
 
+/**
+ * Tests that the facades are working as expected
+ */
 class FacadeTest extends TestCase {
 	public function testAddBlocker(): void
 	{
