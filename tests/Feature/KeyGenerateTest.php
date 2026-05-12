@@ -17,6 +17,6 @@ class KeyGenerateTest extends TestCase
 		$result = ( new ReflectionMethod( $instance, 'generateKey' ) )
 			->invoke( $instance, $classPath, $resourceId );
 
-		$this->assertSame( $classPath . '_' . $resourceId, $result );
+		$this->assertSame( config( 'waiting-request.cache_prefix' ) . $classPath . '_' . $resourceId, $result );
 	}
 }

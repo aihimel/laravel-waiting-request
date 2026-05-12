@@ -15,7 +15,7 @@ class LWRequestService {
 	 */
 	protected function generateKey( string $classPath, int $resourceId ): string
 	{
-		return $classPath . "_" . $resourceId;
+		return config( 'waiting-request.cache_prefix' ) . $classPath . "_" . $resourceId;
 	}
 
 	/**
