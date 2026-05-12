@@ -26,7 +26,8 @@ class LWRequestService {
 	 *
 	 * @return bool
 	 */
-	public function addBlocker( string $classPath, int $resourceId ): bool {
+	public function addBlocker( string $classPath, int $resourceId ): bool
+	{
 		return Cache::add(
 			$this->generateKey( $classPath, $resourceId ),
 			true,
