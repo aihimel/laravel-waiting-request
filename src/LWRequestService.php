@@ -59,4 +59,33 @@ class LWRequestService {
 	{
 		return Cache::has( $this->generateKey( $classPath, $resourceId ) );
 	}
+
+	/**
+	 * Wait till a blocker is resolved
+	 *
+	 * @param string   $classPath
+	 * @param int      $resourceId
+	 * @param int|null $timeout timeout in seconds
+	 * @param int|null $interval interval in miliseconds
+	 *
+	 * @return bool
+	 */
+	public function whenResolved( string $classPath, int $resourceId, ?int $timeout = null, ?int $interval = null ): bool
+	{
+		$timeout  = $timeout ?? config( 'waiting-request.timeout', 5 );
+		$interval = $interval ?? config( 'waiting-request.check_interval', 250 );
+
+		$startTime = microtime( true );
+		$endTime   = $startTime + $timeout;
+
+		while (microtime( true ) < $endTime) {
+			if (! $this->isBlocked( $classPath, $resourceId )) {
+				return true;
+			}
+
+			usleep( $interval * 1000 );
+		}
+
+		return ! $this->isBlocked( $classPath, $resourceId );
+	}
 }
