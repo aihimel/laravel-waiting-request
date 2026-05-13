@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<ruleset name="Laravel PHPCS">
+    <description>PHPCS config for a Laravel project</description>
+    <rule ref="./vendor/onramplab/onr-phpcs-laravel/ruleset.xml" />
+    <file>src</file>
+    <file>tests</file>
+    <!-- Custom Rules -->
+    <rule ref="PSR2.Classes.ClassDeclaration">
+        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
+    </rule>
+    <rule ref="Generic.Classes.OpeningBraceSameLine"/>
+    <rule ref="PSR2.Files.EndFileNewline">
+        <exclude name="PSR2.Files.EndFileNewline.NoneFound" />
+    </rule>
+    <rule ref="Generic.Debug.ClosureLinter">
+        <exclude name="Generic.Debug.ClosureLinter" />
+    </rule>
+    <rule ref="Generic.Debug.CSSLint">
+        <exclude name="Generic.Debug.CSSLint" />
+    </rule>
+    <rule ref="Generic.Debug.ESLint">
+        <exclude name="Generic.Debug.ESLint" />
+    </rule>
+    <rule ref="Generic.Debug.JSHint">
+        <exclude name="Generic.Debug.JSHint" />
+    </rule>
+    <rule ref="Generic.Formatting.NoSpaceAfterCast">
+        <exclude name="Generic.Formatting.NoSpaceAfterCast" />
+    </rule>
+    <rule ref="Generic.Functions.CallTimePassByReference">
+        <exclude name="Generic.Functions.CallTimePassByReference" />
+    </rule>
+    <rule ref="MySource.PHP.EvalObjectFactory">
+        <exclude name="MySource.PHP.EvalObjectFactory" />
+    </rule>
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen" />
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose" />
+    </rule>
+    <rule ref="PSR2.Methods.FunctionCallSignature">
+        <exclude name="PSR2.Methods.FunctionCallSignature.SpaceAfterOpenBracket" />
+        <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket" />
+    </rule>
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>workbench/*</exclude-pattern>
+</ruleset>

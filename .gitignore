@@ -1,3 +1,9 @@
+.junie
+bin
 vendor
+workbench
 composer.lock
 .idea
+*.cache
+NOTES.md
+

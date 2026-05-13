@@ -1,0 +1,24 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravel-waiting-request-app
+    container_name: laravel_waiting_request_app
+    volumes:
+      - .:/var/www/html
+    environment:
+      - DB_CONNECTION=sqlite
+      - DB_DATABASE=/var/www/html/database.sqlite
+      - CACHE_STORE=file
+    working_dir: /var/www/html
+    ports:
+      - "8000:8000"
+    tty: true
+    stdin_open: true
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
