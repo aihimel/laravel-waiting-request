@@ -9,6 +9,7 @@
             "email": "toaihimel@gmail.com"
         }
     ],
+    "keywords": [ "php", "laravel", "package", "backend", "request", "blocking", "waiting" ],
     "minimum-stability": "stable",
     "require": {
         "illuminate/support": "^13.8"
