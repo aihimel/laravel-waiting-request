@@ -36,7 +36,7 @@
                 "Aihimel\\LaravelWaitingRequest\\LWRequestServiceProvider"
             ],
             "aliases": {
-                "LWRequest": "Aihimel\\LaravelWaithingRequest\\Facades\\LWRequest"
+                "LWRequest": "Aihimel\\LaravelWaitingRequest\\Facades\\LWRequest"
             }
         }
     },

@@ -22,7 +22,7 @@ return [
     | when using the whenResolved method.
     |
     */
-    'timeout' => 5, // seconds
+    'timeout' => env('LW_REQUEST_MAX_WAITING_TIME', 5), // seconds
 
     /*
     |--------------------------------------------------------------------------
@@ -33,5 +33,5 @@ return [
     | to be resolved.
     |
     */
-    'check_interval' => 250, // milliseconds
+    'check_interval' => env('LW_REQUEST_CHECK_INTERVAL', 250), // milliseconds
 ];
