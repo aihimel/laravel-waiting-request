@@ -1,8 +1,9 @@
 # Laravel Waiting Request
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/aihimel/laravel-waiting-request.svg?style=flat-square)](https://packagist.org/packages/aihimel/laravel-waiting-request)
-[![Total Downloads](https://img.shields.io/packagist/dt/aihimel/laravel-waiting-request.svg?style=flat-square)](https://packagist.org/packages/aihimel/laravel-waiting-request)
-[![Tests](https://github.com/aihimel/laravel-waiting-request/actions/workflows/tests.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/tests.yml)
+[//]: # ([![Latest Version on Packagist]&#40;https://img.shields.io/packagist/v/aihimel/laravel-waiting-request.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/aihimel/laravel-waiting-request&#41;)
+[//]: # ([![Total Downloads]&#40;https://img.shields.io/packagist/dt/aihimel/laravel-waiting-request.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/aihimel/laravel-waiting-request&#41;)
+[![Tests](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpunit.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpunit.yml)
+[![Check Style](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpcs.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpcs.yml)
 
 A simple implementation for holding requests until a job or background process is finished. This package allows you to conditionally block requests and wait for them to be unblocked within a specified timeout.
 
