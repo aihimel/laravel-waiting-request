@@ -1,7 +1,7 @@
 # Laravel Waiting Request
 
-[//]: # ([![Latest Version on Packagist]&#40;https://img.shields.io/packagist/v/aihimel/laravel-waiting-request.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/aihimel/laravel-waiting-request&#41;)
-[//]: # ([![Total Downloads]&#40;https://img.shields.io/packagist/dt/aihimel/laravel-waiting-request.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/aihimel/laravel-waiting-request&#41;)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/aihimel/laravel-waiting-request.svg?style=flat-square)](https://packagist.org/packages/aihimel/laravel-waiting-request)
+[![Total Downloads](https://img.shields.io/packagist/dt/aihimel/laravel-waiting-request.svg?style=flat-square)](https://packagist.org/packages/aihimel/laravel-waiting-request)
 [![Tests](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpunit.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpunit.yml)
 [![Check Style](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpcs.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpcs.yml)
 
