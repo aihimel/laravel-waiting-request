@@ -16,7 +16,8 @@
     },
     "require-dev": {
         "orchestra/testbench": "^11.1",
-        "onramplab/onr-phpcs-laravel": "^1.2"
+        "onramplab/onr-phpcs-laravel": "^1.2",
+        "larastan/larastan": "^3.9"
     },
     "autoload": {
         "psr-4": {
@@ -53,7 +54,8 @@
             "Composer\\Config::disableProcessTimeout",
             "@build",
             "@php vendor/bin/testbench serve --ansi"
-        ]
+        ],
+        "analyse": "@php vendor/bin/phpstan analyse --memory-limit=1G"
     },
     "config": {
         "allow-plugins": {
