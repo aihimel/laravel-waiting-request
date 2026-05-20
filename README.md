@@ -109,7 +109,7 @@ docker compose --build
 
 #### Run automated tests
 ```bash
-docker exec laravel_waiting_request_app ./vendor/phpunit/phpunit/phpunit
+docker exec laravel_waiting_request_app ./vendor/bin/phpunit
 ```
 
 #### Run PHPCS code inspection
