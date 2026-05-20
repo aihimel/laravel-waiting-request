@@ -8,3 +8,5 @@
 /phpcs.xml export-ignore
 /phpunit.xml export-ignore
 /testbench.yaml export-ignore
+/.act export-ignore
+/.actrc export-ignore
