@@ -2,6 +2,8 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/aihimel/laravel-waiting-request.svg?style=flat-square)](https://packagist.org/packages/aihimel/laravel-waiting-request)
 [![Total Downloads](https://img.shields.io/packagist/dt/aihimel/laravel-waiting-request.svg?style=flat-square)](https://packagist.org/packages/aihimel/laravel-waiting-request)
+[![PHP Version](https://img.shields.io/badge/PHP-8.2%20--%208.4-777BB4?logo=php&logoColor=white)](https://www.php.net/)
+[![Laravel Version](https://img.shields.io/badge/Laravel-10.x%20--%2013.x-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
 [![Tests](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpunit.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpunit.yml)
 [![Check Style](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpcs.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpcs.yml)
 [![PHPStan](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpstan.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpstan.yml)
