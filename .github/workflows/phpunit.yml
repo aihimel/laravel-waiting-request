@@ -10,6 +10,21 @@ jobs:
   phpunit:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php: '8.2'
+            laravel: '10.*'
+            testbench: '8.*'
+            larastan: '2.*'
+          - php: '8.4'
+            laravel: '13.*'
+            testbench: '11.*'
+            larastan: '3.*'
+
+    name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,7 +32,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: ${{ matrix.php }}
           extensions: mbstring, xml, ctype, iconv, sqlite, pdo_sqlite
           coverage: pcov
 
@@ -29,16 +44,19 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
+          key: ${{ runner.os }}-php-${{ matrix.php }}-laravel-${{ matrix.laravel }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-php-${{ matrix.php }}-laravel-${{ matrix.laravel }}-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction
+        run: |
+          composer require "illuminate/support:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "larastan/larastan:${{ matrix.larastan }}" --no-interaction --no-update
+          composer update --prefer-dist --no-progress --no-interaction
 
       - name: Run PHPUnit
         run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
 
       - name: Upload coverage to Codecov
+        if: matrix.php == '8.4' && matrix.laravel == '13.*'
         uses: codecov/codecov-action@v4
         with:
           files: ./coverage.xml
