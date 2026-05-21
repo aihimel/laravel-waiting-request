@@ -12,11 +12,12 @@
     "keywords": [ "php", "laravel", "package", "backend", "request", "blocking", "waiting" ],
     "minimum-stability": "stable",
     "require": {
-        "illuminate/support": "^13.8"
+        "illuminate/support": "^10.0 || ^11.0 || ^12.0 || ^13.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^11.1",
-        "onramplab/onr-phpcs-laravel": "^1.2"
+        "orchestra/testbench": "^8.0 || ^9.0 || ^10.0 || ^11.0",
+        "onramplab/onr-phpcs-laravel": "^1.2",
+        "larastan/larastan": "^2.0 || ^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -53,7 +54,8 @@
             "Composer\\Config::disableProcessTimeout",
             "@build",
             "@php vendor/bin/testbench serve --ansi"
-        ]
+        ],
+        "analyse": "@php vendor/bin/phpstan analyse --memory-limit=1G"
     },
     "config": {
         "allow-plugins": {

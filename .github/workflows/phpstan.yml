@@ -1,4 +1,4 @@
-name: PHP CodeSniffer
+name: PHPStan
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "**" ]
 
 jobs:
-  phpcs:
+  phpstan:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +18,7 @@ jobs:
         uses: shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc  # 2.37.1
         with:
           php-version: '8.4'
-          extensions: mbstring, xml, ctype, iconv
+          extensions: mbstring, xml, ctype, iconv, sqlite, pdo_sqlite
           coverage: none
 
       - name: Get Composer Cache Directory
@@ -35,5 +35,5 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-interaction
 
-      - name: Run PHPCS
-        run: ./vendor/bin/phpcs -s
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyse --memory-limit=2G --no-progress
