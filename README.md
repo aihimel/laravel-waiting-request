@@ -5,6 +5,7 @@
 [![Tests](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpunit.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpunit.yml)
 [![Check Style](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpcs.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpcs.yml)
 [![PHPStan](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpstan.yml/badge.svg)](https://github.com/aihimel/laravel-waiting-request/actions/workflows/phpstan.yml)
+[![codecov](https://codecov.io/gh/aihimel/laravel-waiting-request/branch/master/graph/badge.svg)](https://codecov.io/gh/aihimel/laravel-waiting-request)
 
 A simple implementation for holding requests until a job or background process is finished. This package allows you to conditionally block requests and wait for them to be unblocked within a specified timeout.
 
