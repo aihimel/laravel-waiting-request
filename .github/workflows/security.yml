@@ -1,13 +1,16 @@
-name: PHP CodeSniffer
+name: Security
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "**" ]
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
-  phpcs:
+  composer-audit:
+    name: Composer Audit
     runs-on: ubuntu-latest
 
     steps:
@@ -21,19 +24,8 @@ jobs:
           extensions: mbstring, xml, ctype, iconv
           coverage: none
 
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache dependencies
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830  # v4.3.0
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
-
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-interaction
 
-      - name: Run PHPCS
-        run: ./vendor/bin/phpcs -s
+      - name: Run composer audit
+        run: composer audit --no-dev --locked
