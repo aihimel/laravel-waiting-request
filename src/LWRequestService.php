@@ -21,16 +21,24 @@ class LWRequestService {
 	/**
 	 * Create a blocker for a resource
 	 *
-	 * @param string $classPath
-	 * @param int    $resourceId
+	 * @param string   $classPath
+	 * @param int      $resourceId
+	 * @param int|null $maxBlockingTime TTL in seconds.
+	 *   null (default) falls back to the `waiting-request.max_blocking_time` config value.
+	 *   Any positive integer is used as-is.
+	 *   Zero or a negative integer disables the TTL (blocker persists until resolved).
 	 *
 	 * @return bool
 	 */
-	public function addBlocker( string $classPath, int $resourceId ): bool
+	public function addBlocker( string $classPath, int $resourceId, ?int $maxBlockingTime = null ): bool
 	{
+		$ttl = $maxBlockingTime ?? (int) config( 'waiting-request.max_blocking_time', 10 );
+		$ttl = $ttl > 0 ? $ttl : null;
+
 		return Cache::add(
 			$this->generateKey( $classPath, $resourceId ),
 			true,
+			$ttl
 		);
 	}
 
