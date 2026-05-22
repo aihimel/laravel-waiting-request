@@ -36,7 +36,7 @@ class LWRequestService {
 	public function addBlocker( string $classPath, int $resourceId, ?int $maxBlockingTime = null ): bool
 	{
 		$ttl = $maxBlockingTime ?? (int) config( 'waiting-request.max_blocking_time', 10 );
-		if ( $ttl <= 0 ) {
+		if ($ttl <= 0) {
 			$ttl = (int) config( 'waiting-request.max_blocking_time', 10 );
 		}
 
@@ -76,11 +76,11 @@ class LWRequestService {
 		$key       = $this->generateKey( $classPath, $resourceId );
 		$expiresAt = Cache::get( $key );
 
-		if ( $expiresAt === null ) {
+		if ($expiresAt === null) {
 			return false;
 		}
 
-		if ( time() >= (int) $expiresAt ) {
+		if (time() >= (int) $expiresAt) {
 			Cache::forget( $key );
 			Log::warning(
 				'Waiting-request blocker expired without being resolved',
