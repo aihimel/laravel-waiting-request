@@ -43,21 +43,14 @@ class WhenResolvedTest extends TestCase {
 
 	public function testWhenResolvedReturnsTrueIfResourceIsUnblockedWithinTimeout(): void
 	{
-		// Since PHP is single-threaded, we'll use a mock to simulate the resource being unblocked
-		// after a few checks.
+		// isBlocked() reads Cache::get() and treats the value as a Unix expiry
+		// timestamp. Simulate two "still blocked" reads (future timestamp), then
+		// a "resolved" read (null = key absent).
+		$future = time() + 60;
 
-		// The whenResolved method calls isBlocked, which calls Cache::has.
-		// We want isBlocked to return true twice, then false.
-
-		// However, isBlocked uses Cache::has.
-		// We can mock Cache::has.
-
-		Cache::shouldReceive('has')
+		Cache::shouldReceive('get')
 			->times(3)
-			->andReturn(true, true, false);
-
-		// We need to make sure the key generated matches what we expect or just allow any key.
-		// The key is generated using config('waiting-request.cache_prefix') which is 'lw_request_' by default.
+			->andReturn($future, $future, null);
 
 		$result = LWRequest::whenResolved( 'App\Models\User', 1, 2, 10 );
 

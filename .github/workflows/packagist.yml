@@ -1,0 +1,30 @@
+name: Packagist Update
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+jobs:
+  notify-packagist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notify Packagist of new tag
+        env:
+          PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
+          PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
+          REPO_URL: https://github.com/${{ github.repository }}
+        run: |
+          if [ -z "$PACKAGIST_USERNAME" ] || [ -z "$PACKAGIST_TOKEN" ]; then
+            echo "::error::PACKAGIST_USERNAME and PACKAGIST_TOKEN repository secrets must be set."
+            exit 1
+          fi
+
+          curl -fsS -X POST \
+            -H 'Content-Type: application/json' \
+            -d "{\"repository\":{\"url\":\"${REPO_URL}\"}}" \
+            "https://packagist.org/api/update-package?username=${PACKAGIST_USERNAME}&apiToken=${PACKAGIST_TOKEN}"
