@@ -19,6 +19,17 @@ class ConfigurationTest extends TestCase
         $this->assertEquals('custom_prefix_', config('waiting-request.cache_prefix'));
     }
 
+    public function testMaxBlockingTimeDefault()
+    {
+        $this->assertEquals(10, config('waiting-request.max_blocking_time'));
+    }
+
+    public function testMaxBlockingTimeCanBeOverridden()
+    {
+        config(['waiting-request.max_blocking_time' => 45]);
+        $this->assertEquals(45, config('waiting-request.max_blocking_time'));
+    }
+
     public function testConfigurationCanBePublished()
     {
         $configPath = config_path('waiting-request.php');

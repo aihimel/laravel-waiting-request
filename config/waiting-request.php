@@ -34,4 +34,10 @@ return [
     |
     */
     'check_interval' => env('LW_REQUEST_CHECK_INTERVAL', 250), // milliseconds
+
+    /**
+	 * Maximum blocking time for a blocker
+	 * Time in seconds, this is the maximum duration that a blocker can be allowed
+	 */
+	'max_blocking_time' => env('LW_REQUEST_MAX_BLOCKING_TIME', 10),
 ];
